@@ -47,6 +47,13 @@ public class PlayerJump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (gravity.IsWeightless)
+        {
+            IsGrounded = false;
+            jumpRequested = false;
+            return;
+        }
+
         Vector3 up = gravity.GravityUp;
         IsGrounded = CheckGround(up);
 

@@ -385,11 +385,12 @@ MonoBehaviour:
   distance: 8
   height: 1.5
   sensitivity: 2
+  lockCursor: 1
   pitchMin: -10
   pitchMax: 75
   startPitch: 25
-  lockCursor: 1
   upFollowSpeed: 5
+  pitchSettleSpeed: 120
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +935,7 @@ GameObject:
   - component: {fileID: 1787480899}
   - component: {fileID: 1787480905}
   - component: {fileID: 1787480906}
+  - component: {fileID: 1787480907}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1072,7 +1074,7 @@ Transform:
   m_GameObject: {fileID: 1787480898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.73, y: 6.71, z: -16.57}
+  m_LocalPosition: {x: 2.73, y: 6.71, z: -2.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1113,6 +1115,27 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1787480907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787480898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308bd9f93d4e5e149bc3d755513a2d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFlight
+  thrust: 15
+  maxSpeed: 20
+  brakeDeceleration: 30
+  upKey: 101
+  downKey: 113
+  brakeKey: 120
+  headFirst: 1
+  turnSharpness: 8
+  inputReference: {fileID: 330585546}
 --- !u!1 &1940121756
 GameObject:
   m_ObjectHideFlags: 0
