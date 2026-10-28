@@ -7,7 +7,7 @@ using UnityEngine;
 /// Повесить на врага (Rigidbody + CapsuleCollider).
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
-public class EnemyChase : MonoBehaviour
+public class EnemyChaseV1 : MonoBehaviour
 {
     [Header("Планета")]
     [Tooltip("Центр планеты, на которой живёт враг. Если пусто, берётся ближайшая зона гравитации.")]
