@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,16 @@ public class OxyTank : MonoBehaviour
 
     public float OxyCount => oxyCount;
 
+    internal void AddOxy(float oxy)
+    {
+        oxyCount += oxy;
+        oxyCount = Mathf.Min(oxyCount, oxyMax);
+    }
+
+    internal void DecreaseOxy(float oxy)
+    {
+        oxyCount -= oxy;
+    }
 
     private void Awake()
     {

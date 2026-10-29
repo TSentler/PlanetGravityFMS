@@ -6,6 +6,7 @@ public class PlayerGun : MonoBehaviour
     public GameObject Bullet;
     public Transform FirePointGravity;
     public Transform FirePointFlight;
+    public float oxyCount = 5;
 
     private PlayerGravity playerGravity;
     private Transform FirePoint;
@@ -19,6 +20,8 @@ public class PlayerGun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") == false)
             return;
+
+        GetComponent<OxyTank>().DecreaseOxy(oxyCount);
 
         if (playerGravity.IsWeightless)
         {
