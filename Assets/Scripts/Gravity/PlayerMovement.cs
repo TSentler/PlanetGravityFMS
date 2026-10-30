@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Система отсчёта ввода")]
     [Tooltip("Камера (когда появится). Если пусто, используется виртуальная 'камера'.")]
-    [SerializeField] private Transform inputReference;
+    [SerializeField] private Transform playerCamera;
 
     private Rigidbody rb;
     private PlayerGravity gravity;
@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
     // Обёртка: в Unity 6 velocity переименовали в linearVelocity
     private Vector3 Velocity
     {
-        get => rb.linearVelocity;
-        set => rb.linearVelocity = value;
+        get => rb.velocity;
+        set => rb.velocity = value;
     }
 
     private void Awake()
@@ -76,9 +76,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Выбираем систему отсчёта: настоящая камера или виртуальная
         Vector3 refForward = virtualForward;
-        if (inputReference != null)
+        if (playerCamera != null)
         {
-            Vector3 f = Vector3.ProjectOnPlane(inputReference.forward, up);
+            Vector3 f = Vector3.ProjectOnPlane(playerCamera.forward, up);
             if (f.sqrMagnitude > 0.0001f)
                 refForward = f.normalized;
         }

@@ -21,5 +21,6 @@ public class EnemySpawnerHealth : MonoBehaviour, IHealthTaker
         {
             gameObject.SetActive(false);
         }
+        Debug.Log(Health);
     }
 }

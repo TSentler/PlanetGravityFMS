@@ -10,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public class PlanetInfection : MonoBehaviour
 {
+    public Transform LiberationWorldPoint;
+
     [Header("Рендереры планеты")]
     [Tooltip("Если пусто, берутся все Renderer на этом объекте и в дочерних")]
     [SerializeField] private Renderer[] renderers;
@@ -46,6 +48,7 @@ public class PlanetInfection : MonoBehaviour
     private void Awake()
     {
         EnsureRenderers();
+
         Apply();
     }
 
@@ -83,6 +86,14 @@ public class PlanetInfection : MonoBehaviour
     {
         SetOrigin(worldPoint);
         Liberate();
+    }
+
+    public void LiberateAtWorldPoint()
+    {
+        if (LiberationWorldPoint == null) 
+            return;
+
+        Liberate(LiberationWorldPoint.position);
     }
 
     /// <summary>Заразить планету: заражение плавно растёт от источника.</summary>

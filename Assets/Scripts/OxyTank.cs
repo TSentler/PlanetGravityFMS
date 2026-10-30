@@ -9,11 +9,17 @@ public class OxyTank : MonoBehaviour
     public float Speed = 1f;
     public float RestoreSpeed = 1f;
     public PlayerGravity playerGravity;
+    public float oxyMax = 100f;
 
     private float oxyCount = 100f;
-    private float oxyMax = 100f;
 
     public float OxyCount => oxyCount;
+
+    public static void LvlUp( float value)
+    {
+        FindObjectOfType<OxyTank>().oxyMax += 20f;
+
+    }
 
     internal void AddOxy(float oxy)
     {

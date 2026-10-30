@@ -21,18 +21,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Planet
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7129f5d94f4a2004599cf3adb34f7a48, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _EMISSION
-  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -114,15 +113,21 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EdgeNoise: 0.376
+    - _EdgeStrength: 0.97
+    - _EdgeWidth: 0.169
     - _EmissionScaleUI: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Infection: 0.97
     - _Metallic: 0
     - _Mode: 0
+    - _NoiseScale: 3.22
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _PulseSpeed: 3.35
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _SampleGI: 0
@@ -133,6 +138,8 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _UVSec: 0
+    - _VeinSharpness: 10.67
+    - _VeinStrength: 1.23
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _gloss: 0
@@ -140,7 +147,12 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 1.5, g: 0.4, b: 1.8, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _InfectedColor: {r: 0.15999997, g: 0.04, b: 0.21999997, a: 1}
+    - _InfectedColor2: {r: 0.31999996, g: 0.079999976, b: 0.29999998, a: 1}
+    - _Origin: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
+    - _VeinColor: {r: 1.2, g: 0.1, b: 1.6, a: 1}
   m_BuildTextureStacks: []
