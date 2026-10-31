@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
     // Обёртка: в Unity 6 velocity переименовали в linearVelocity
     private Vector3 Velocity
     {
-        get => rb.velocity;
-        set => rb.velocity = value;
+        get => rb.linearVelocity;
+        set => rb.linearVelocity = value;
     }
 
     private void Awake()
