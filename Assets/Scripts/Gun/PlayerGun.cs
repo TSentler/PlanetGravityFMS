@@ -7,6 +7,8 @@ public class PlayerGun : MonoBehaviour
     public Transform FirePointGravity;
     public Transform FirePointFlight;
     public float oxyCount = 5;
+    public AudioSource AudioSource;
+    public AudioClip BlasterSound;
 
     private PlayerGravity playerGravity;
     private Transform FirePoint;
@@ -43,5 +45,12 @@ public class PlayerGun : MonoBehaviour
         {
             bullet.Launch(playerGravity.GravityTarget, FirePoint.forward, transform);
         }
+
+        FX();
+    }
+
+    private void FX()
+    {
+        AudioSource.PlayOneShot(BlasterSound);
     }
 }

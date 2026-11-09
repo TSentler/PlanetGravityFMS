@@ -6,7 +6,10 @@ public class Dash : MonoBehaviour
 {
     public float Speed = 20f;
     public float Oxy = 20f;
-
+    public Transform FXPoint;
+    public GameObject FXPrefab;
+    public AudioSource AudioSource;
+    public AudioClip DashSound;
 
     private OxyTank oxyTank;
     private Rigidbody rb;
@@ -24,10 +27,18 @@ public class Dash : MonoBehaviour
         {
             rb.AddForce(transform.up * Speed, ForceMode.Impulse);
             oxyTank.DecreaseOxy(Oxy);
+            FX();
         }
     }
+
     public void DecreaseOxy()
     {
         oxyTank.DecreaseOxy(Oxy);
+    }
+
+    private void FX()
+    {
+        Instantiate(FXPrefab, FXPoint.position, Quaternion.identity);
+        AudioSource.PlayOneShot(DashSound);
     }
 }

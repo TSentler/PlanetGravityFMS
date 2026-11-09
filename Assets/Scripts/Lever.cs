@@ -8,9 +8,14 @@ public class Lever : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         OxyTank player = collision.gameObject.GetComponentInParent<OxyTank>();
-        if (player != null)
+        if (player != null )
         {
             OnPressed.Invoke();
         }
+    }
+
+    public void TakeDamage()
+    {
+        OnPressed.Invoke();
     }
 }

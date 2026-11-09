@@ -50,6 +50,7 @@ public class PlanetBulletV2 : MonoBehaviour
     [SerializeField] private LayerMask hitMask = ~0;
     [SerializeField] private float damage = 10f;
     [SerializeField] private bool destroyOnHit = true;
+    [SerializeField] private GameObject FXPrefab;
 
     /// <summary>Попадание: во что попали и в какой точке.</summary>
     public event Action<Collider, Vector3> Hit;
@@ -96,7 +97,25 @@ public class PlanetBulletV2 : MonoBehaviour
             heading = transform.forward;
             Initialize();
         }
-        Destroy(gameObject, lifetime);
+        DestroyBullet();
+    }
+
+    private void DestroyBullet(bool now = false)
+    {
+        if (now)
+        {
+            FX();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject, lifetime);
+        }
+    }
+
+    private void FX()
+    {
+        Instantiate(FXPrefab, transform.position, Quaternion.identity);
     }
 
     private void Initialize()
@@ -170,7 +189,7 @@ public class PlanetBulletV2 : MonoBehaviour
         heading = Vector3.ProjectOnPlane(heading, up);
         if (heading.sqrMagnitude < 1e-6f)
         {
-            Destroy(gameObject); // направление совпало с "верхом", лететь некуда
+            DestroyBullet(true);
             return;
         }
         heading.Normalize();
@@ -243,7 +262,8 @@ public class PlanetBulletV2 : MonoBehaviour
         target.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         Hit?.Invoke(target, point);
 
-        if (destroyOnHit) Destroy(gameObject);
+        if (destroyOnHit) 
+            DestroyBullet(true);
         return true;
     }
 }

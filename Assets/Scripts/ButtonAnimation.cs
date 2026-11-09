@@ -17,7 +17,7 @@ public class ButtonAnimation : MonoBehaviour
     {
         PlayerGravity player = collision.gameObject.GetComponentInParent<PlayerGravity>();
         float distance = Vector3.Distance(position, transform.position);
-        if (player != null 
+        if ((player != null)
             && Mathf.Abs(distance) < 0.01f)
         {
             transform.position -= transform.up * Offset;

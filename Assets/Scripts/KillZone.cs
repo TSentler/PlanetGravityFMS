@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class KillZone : MonoBehaviour
 {
+    public GameObject FXPrefab;
+    public AudioSource AudioSource;
+    public AudioClip DashSound;
+
     private void OnTriggerEnter(Collider other)
     {
         PlayerGravity player = other.GetComponentInParent<PlayerGravity>();
         if (player != null) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            player.gameObject.SetActive(false);
+            Instantiate(FXPrefab, player.transform.position, Quaternion.identity);
+            AudioSource.PlayOneShot(DashSound);
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
